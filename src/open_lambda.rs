@@ -12,6 +12,6 @@ pub(crate) fn getrandom_inner(dest: &mut [u8]) -> Result<(), Error> {
     let len = dest.len() as u32;
 
     unsafe {
-        api::get_random_value(dest, len);
+        api::get_random_value(ptr, len);
     }
 }
