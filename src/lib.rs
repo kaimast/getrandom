@@ -224,6 +224,8 @@ cfg_if! {
     } else if #[cfg(all(feature = "js",
                         target_arch = "wasm32", target_os = "unknown"))] {
         #[path = "js.rs"] mod imp;
+    } else if #[cfg(feature = "open-lambda")] {
+        #[path = "open_lambda.rs"] mod imp;
     } else if #[cfg(all(target_os = "horizon", target_arch = "arm"))] {
         // We check for target_arch = "arm" because the Nintendo Switch also
         // uses Horizon OS (it is aarch64).

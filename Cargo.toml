@@ -47,6 +47,7 @@ rustc-dep-of-std = [
 ]
 # Unstable/test-only feature to run wasm-bindgen tests in a browser
 test-in-browser = []
+open-lambda = []
 
 [package.metadata.docs.rs]
 features = ["std", "custom"]
