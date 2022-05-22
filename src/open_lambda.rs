@@ -14,4 +14,6 @@ pub(crate) fn getrandom_inner(dest: &mut [u8]) -> Result<(), Error> {
     unsafe {
         api::get_random_value(ptr, len);
     }
+
+    Ok(())
 }
