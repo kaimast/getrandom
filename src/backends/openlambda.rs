@@ -1,4 +1,5 @@
 use crate::Error;
+use core::mem::MaybeUninit;
 
 mod api {
     #[link(wasm_import_module = "ol_args")]
@@ -7,8 +8,8 @@ mod api {
     }
 }
 
-pub(crate) fn getrandom_inner(dest: &mut [u8]) -> Result<(), Error> {
-    let ptr = dest.as_mut_ptr();
+pub fn fill_inner(dest: &mut [MaybeUninit<u8>]) -> Result<(), Error> {
+    let ptr = dest.as_mut_ptr().cast();
     let len = dest.len() as u32;
 
     unsafe {

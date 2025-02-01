@@ -155,7 +155,7 @@ cfg_if! {
     } else if #[cfg(all(target_arch = "x86_64", target_env = "sgx"))] {
         mod rdrand;
         pub use rdrand::*;
-    } else if #[cfg(feature = "open-lambda")] {
+    } else if #[cfg(all(target_arch = "wasm32", feature = "open-lambda"))] {
         mod openlambda;
         pub use openlambda::*; 
     } else if #[cfg(all(target_arch = "wasm32", any(target_os = "unknown", target_os = "none")))] {
