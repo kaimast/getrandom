@@ -35,6 +35,9 @@ mod backends;
 mod error;
 mod util;
 
+#[cfg(feature = "std")]
+mod error_std_impls;
+
 pub use crate::error::Error;
 
 /// Fill `dest` with random bytes from the system's preferred random number source.
